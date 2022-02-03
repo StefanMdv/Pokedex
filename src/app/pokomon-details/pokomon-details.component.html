@@ -1,0 +1,61 @@
+<div id="pokedex">
+    <button mat-icon-button (click)="closeDialog()"><mat-icon>close</mat-icon></button>
+    <div>
+        <h1 id="pokemonName">{{pokemon.name}}</h1>
+        <h2>#{{getPokemonID(index+1)}}</h2>
+    </div>
+</div>
+
+<div class="info-container">
+    <span class="img">
+        <img [src]="pokemon.sprites.other.dream_world.front_default" class="pokemonImage" alt="pokemon">
+    </span>
+
+    <div class="description">
+        <div class="line1">
+            <span class="text-gray">Type</span>
+            <span>{{pokemon.types[0].type.name}}</span>
+        </div>
+        <div class="line1">
+            <span class="text-gray">Height</span>
+            <span>{{pokemon.height*10}} cm</span>
+        </div>
+        <div class="line1">
+            <span class="text-gray">Weight</span>
+            <span>{{pokemon.weight/10}} kg</span>
+        </div>
+        <div class="line">
+            <span class="text-gray">Health</span>
+            <div>
+                <span>{{this.health}}</span>
+                <mat-progress-bar [color]="progressBarColor(this.health)" mode="determinate" value="{{this.health}}">
+                </mat-progress-bar>
+            </div>
+        </div>
+        <div class="line">
+            <span class="text-gray">Attack</span>
+            <div>
+                <span>{{this.attack}}</span>
+                <mat-progress-bar [color]="progressBarColor(this.attack)" mode="determinate" value="{{this.attack}}">
+                </mat-progress-bar>
+            </div>
+        </div>
+        <div class="line">
+            <span class="text-gray">Defence</span>
+            <div>
+                <span>{{this.defence}}</span>
+                <mat-progress-bar [color]="progressBarColor(this.defence)" mode="determinate" value="{{this.defence}}">
+                </mat-progress-bar>
+            </div>
+        </div>
+        <div class="line">
+            <span class="text-gray">Speed</span>
+            <div>
+                <span>{{this.speed}}</span>
+                <mat-progress-bar [color]="progressBarColor(this.speed)" mode="determinate" value="{{this.speed}}">
+                </mat-progress-bar>
+            </div>
+        </div>
+
+    </div>
+</div>

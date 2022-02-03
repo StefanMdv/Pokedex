@@ -1,20 +1,31 @@
-<!-- Pokemon Grid -->
-<div class="pokemon-grid">
-    <div class="box" *ngFor="let pokemon of pokemons">
-        <img [src]="pokemon.sprites.front_default" alt="Pokemon">
-        <h3>{{pokemon.name}}</h3>
-        <p>
-            <b>Type:</b> {{pokemon.types[0].type.name}}
-        </p>
-        <p>
-            <b>Height:</b> {{pokemon.height}}
-        </p>
-        <p>
-            <b>Health:</b> {{pokemon.stats[0].base_stat}}
-        </p>
-        <p>
-            <b>Attack Power:</b> {{pokemon.stats[1].base_stat}}
-        </p>
+<div class="content">
+    <mat-form-field class="search-form-field" appearance="fill">
+    <mat-label>Search Pokemons</mat-label>
+  <input #searchInput matInput type="text" [(ngModel)]="value" autocomplete="off" (input)="handleSearch(searchInput)">
+  <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''; filterdPokemons = pokemons">
+    <mat-icon>close</mat-icon>
+  </button>
+  </mat-form-field>  
+    <div class="pokemon-grid">
+        <div [style.backgroundColor]="getBackgroundColorByType(pokemon['types'][0]['type']['name'])" class="box"  *ngFor="let pokemon of filterdPokemons; let i=index;" (click)="openDialog(pokemon, i, typeColors)">
+           
+            <div class="poke">
+                <div class="pokemon-id-number">
+                    #{{getPokemonID(i+1)}}
+                </div>
+                <div class="pokemon-name">
+                    {{pokemon.name}}
+                </div>
+            </div>
+            <div class="container">
+                <div class="pokemon-type">
+                    {{pokemon.types[0].type.name}}
+                </div>
+                <div class="pokemon-image">
+                    <img [src]="pokemon.sprites.other.dream_world.front_default" alt="Pokemon">
+                </div>
+            </div>
+        </div>       
     </div>
-   
-</div>
+    <button mat-raised-button color="primary" (click)="nextPokemons()">More Pokemons</button>
+    
