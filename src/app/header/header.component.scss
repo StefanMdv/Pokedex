@@ -7,8 +7,8 @@ header {
     align-items: center;
 
     img {
-        width: 80px;
-        height: 40px;
+        width: 200px;
+        height: 80px;
     }
 
     h1{
@@ -16,8 +16,32 @@ header {
         color: white;
         letter-spacing: 3px;
         margin-bottom: 0;
+        font-size: 36px;
     }
 
+}
+
+@media (max-width:750px) {
+    header {
+        img {
+            width: 140px;
+            height: 60px;
+        }
+    
+        h1 {
+            font-size: 24px;
+        }
+    }
+   
+}
+
+@media (max-width:500px) {
+    header {
+        img {
+            width: 100px;
+            height: 40px;
+        }
+    }
 }
 
 @media (max-width:350px) {

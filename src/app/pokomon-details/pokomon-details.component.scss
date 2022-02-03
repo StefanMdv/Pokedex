@@ -6,6 +6,12 @@
     padding: 24px;
     flex-direction: column;
 
+    .btn {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
     div {
         display: flex;
         justify-content: space-between;

@@ -12,7 +12,9 @@ export class PokomonDetailsComponent implements OnInit {
   public typeColors: any;
   health : number;
   attack : number;
+  specialAttack : number;
   defence : number;
+  specialDefense : number;
   speed: number;
 
   constructor(public dialogRef:MatDialogRef<PokomonDetailsComponent>) { }
@@ -58,6 +60,8 @@ getAttributes() {
   this.health = this.pokemon.stats[0].base_stat;
   this.attack = this.pokemon.stats[1].base_stat;
   this.defence = this.pokemon.stats[2].base_stat;
+  this.specialAttack = this.pokemon.stats[3].base_stat;
+  this.specialDefense = this.pokemon.stats[4].base_stat;
   this.speed = this.pokemon.stats[5].base_stat;
 }
 
